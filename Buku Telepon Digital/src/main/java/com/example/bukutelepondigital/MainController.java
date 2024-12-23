@@ -15,6 +15,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -40,20 +43,49 @@ public class MainController {
     public void initialize() {
         loadContacts();
 
+        // Menambahkan stylesheet ke scene
+        Scene scene = contactListView.getScene();
+        if (scene != null) {
+            scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+        }
+
+        // Menetapkan cellFactory untuk ListView
         contactListView.setCellFactory(listView -> new ListCell<>() {
             private final ImageView photoView = new ImageView();
+            private final Circle frame = new Circle(30); // Radius bingkai
+            private final StackPane photoContainer = new StackPane();
             private final Text nameText = new Text();
-            private final HBox cellLayout = new HBox(photoView, nameText);
+            private final HBox cellLayout = new HBox(photoContainer, nameText);
 
             {
-                photoView.setFitHeight(50); // Ukuran tinggi gambar
-                photoView.setFitWidth(50); // Ukuran lebar gambar
+                // Konfigurasi foto
+                photoView.setFitHeight(50);
+                photoView.setFitWidth(50);
                 photoView.setPreserveRatio(true);
 
-                nameText.setStyle("-fx-font-size: 16px; -fx-padding: 10px;"); // Ukuran font dan padding teks
+                // Menambahkan kliping lingkaran ke gambar
+                Circle clipCircle = new Circle(25);
+                clipCircle.setCenterX(25);
+                clipCircle.setCenterY(25);
+                photoView.setClip(clipCircle);
 
-                cellLayout.setSpacing(10); // Jarak antara foto dan teks
-                HBox.setHgrow(nameText, Priority.ALWAYS); // Teks menyesuaikan ruang
+                // Konfigurasi bingkai lingkaran
+                frame.setStroke(Color.DEEPPINK); // Warna bingkai
+                frame.setFill(Color.TRANSPARENT); // Latar bingkai transparan
+                frame.setStrokeWidth(2);
+
+                // Menggabungkan bingkai dan gambar dalam StackPane
+                photoContainer.getChildren().addAll(frame, photoView);
+                photoContainer.setAlignment(javafx.geometry.Pos.CENTER);
+
+                // Menambahkan gaya teks
+                nameText.setStyle("-fx-font-size: 16px; -fx-padding: 10px;");
+                cellLayout.setSpacing(10);
+                HBox.setHgrow(nameText, Priority.ALWAYS);
+
+                // Menambahkan border default dan kelas CSS
+                setStyle("-fx-border-width: 1px; -fx-border-color: transparent;");
+                getStyleClass().add("list-cell"); // Menambahkan kelas CSS "list-cell" pada ListCell
             }
 
             @Override
@@ -77,12 +109,27 @@ public class MainController {
 
                     nameText.setText(contact.getName());
                     setGraphic(cellLayout);
+
+                    // Mengubah warna border saat item dihover
+                    setOnMouseEntered(event -> setStyle("-fx-border-width: 1px; -fx-border-color: #ee59a6;")); // Pink saat hover
+                    setOnMouseExited(event -> setStyle("-fx-border-width: 1px; -fx-border-color: transparent;")); // Reset ke transparan saat keluar dari hover
+
+                    // Mengubah warna border saat item dipilih
+                    selectedProperty().addListener((observable, oldValue, newValue) -> {
+                        if (newValue) {
+                            setStyle("-fx-border-width: 1px; -fx-border-color: #FF5733;"); // Merah saat dipilih
+                        } else {
+                            setStyle("-fx-border-width: 1px; -fx-border-color: transparent;");
+                        }
+                    });
                 }
             }
         });
 
+        // Menambahkan listener untuk kolom pencarian
         searchField.textProperty().addListener((observable, oldValue, newValue) -> filterContacts(newValue));
 
+        // Menambahkan double-click untuk menampilkan detail kontak
         contactListView.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 showContactDetails();
@@ -90,6 +137,7 @@ public class MainController {
         });
     }
 
+    // Memuat data kontak dari database
     public void loadContacts() {
         try {
             contacts.clear();
@@ -100,6 +148,7 @@ public class MainController {
         }
     }
 
+    // Menyaring kontak berdasarkan query pencarian
     private void filterContacts(String query) {
         if (query == null || query.isEmpty()) {
             contactListView.setItems(contacts);
@@ -115,6 +164,7 @@ public class MainController {
         contactListView.setItems(filteredContacts);
     }
 
+    // Menangani aksi ketika tombol "Add Contact" ditekan
     @FXML
     public void openAddContact(ActionEvent actionEvent) {
         try {
@@ -132,6 +182,7 @@ public class MainController {
         }
     }
 
+    // Menampilkan detail kontak yang dipilih
     private void showContactDetails() {
         Contact selectedContact = contactListView.getSelectionModel().getSelectedItem();
 
