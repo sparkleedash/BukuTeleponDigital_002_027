@@ -31,7 +31,7 @@ public class MainController {
     private TextField searchField;
 
     @FXML
-    private ListView<Contact> contactListView;
+    public ListView<Contact> contactListView;
 
     @FXML
     private Button addButton;
@@ -149,7 +149,7 @@ public class MainController {
     }
 
     // Menyaring kontak berdasarkan query pencarian
-    private void filterContacts(String query) {
+    public void filterContacts(String query) {
         if (query == null || query.isEmpty()) {
             contactListView.setItems(contacts);
             return;
