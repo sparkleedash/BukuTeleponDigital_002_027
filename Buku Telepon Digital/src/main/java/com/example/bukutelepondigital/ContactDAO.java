@@ -43,9 +43,19 @@ public class ContactDAO {
             pstmt.setString(2, contact.getPhotoPath());
             pstmt.setString(3, String.join(",", contact.getPhoneNumbers())); // Menggabungkan nomor telepon
             pstmt.setInt(4, contact.getId());
-            pstmt.executeUpdate();
+
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected == 0) {
+                System.out.println("Tidak ada data yang diperbarui.");
+            } else {
+                System.out.println("Data berhasil diperbarui.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error saat mengupdate data kontak: " + e.getMessage());
+            throw e;
         }
     }
+
 
     public void deleteContact(int id) throws SQLException {
         String query = "DELETE FROM contacts WHERE id = ?";

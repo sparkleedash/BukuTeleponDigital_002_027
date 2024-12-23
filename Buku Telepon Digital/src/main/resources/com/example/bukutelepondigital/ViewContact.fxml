@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="170.0" prefWidth="150.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.bukutelepondigital.ViewContactController">
+    <!-- Label untuk menampilkan nama kontak -->
+    <Label fx:id="nameLabel" layoutX="14.0" layoutY="14.0" />
+
+    <!-- Label untuk menampilkan nomor telepon -->
+    <Label fx:id="phoneLabel" layoutX="14.0" layoutY="50.0" />
+
+    <!-- Label untuk menampilkan path foto -->
+    <Label fx:id="photoPathLabel" layoutX="14.0" layoutY="90.0" />
+
+    <!-- ImageView untuk menampilkan gambar berdasarkan path foto -->
+    <ImageView fx:id="photoImageView" layoutX="14.0" layoutY="120.0" fitWidth="100" fitHeight="100"/>
+
+    <!-- Tombol untuk membuka form edit kontak -->
+    <Button fx:id="editButton" layoutX="14.0" layoutY="230.0" text="Edit" onAction="#editContact" />
+
+    <!-- Tombol untuk kembali ke tampilan sebelumnya -->
+    <Button fx:id="backButton" layoutX="100.0" layoutY="230.0" text="Back" onAction="#goBack" />
+</AnchorPane>

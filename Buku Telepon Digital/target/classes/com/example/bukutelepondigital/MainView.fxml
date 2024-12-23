@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.bukutelepondigital.MainController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.bukutelepondigital.MainController">
     <children>
         <!-- Pencarian Kontak -->
-        <TextField fx:id="searchField" layoutX="10" layoutY="10" promptText="Search by name..." />
+        <TextField fx:id="searchField" layoutX="10.0" layoutY="14.0" promptText="Search by name..." />
 
         <!-- Daftar Kontak -->
-        <ListView fx:id="contactListView" layoutX="10" layoutY="40" prefWidth="480" prefHeight="300" />
+        <ListView fx:id="contactListView" layoutX="10" layoutY="40" prefHeight="300" prefWidth="480" />
 
         <!-- Tombol untuk menambah kontak -->
-        <Button text="Add Contact" layoutX="10" layoutY="350" onAction="#openAddContact" />
+        <Button layoutX="10" layoutY="350" onAction="#openAddContact" text="Add Contact" />
     </children>
 </AnchorPane>
-
