@@ -1,0 +1,66 @@
+.rounded-text-field {
+    -fx-background-color: #ffffff; /* Warna latar belakang */
+    -fx-background-radius: 15;    /* Membulatkan sudut latar belakang */
+    -fx-border-color: #cccccc;    /* Warna border */
+    -fx-border-width: 1;          /* Ketebalan border */
+    -fx-border-radius: 15;        /* Membulatkan sudut border */
+    -fx-padding: 5 10;            /* Jarak teks dari tepi dalam */
+    -fx-font-size: 14px;          /* Ukuran teks */
+}
+.transparant{
+fx-background-color: rgba(0,0,0,0);
+}
+/* Menimpa warna fokus default pada ListCell yang dipilih */
+.list-cell {
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent; /* Menimpa warna fokus */
+    -fx-faint-focus-color: transparent; /* Menimpa warna fokus saat tidak jelas */
+}
+
+/* Mengubah warna border saat item dihover */
+.list-cell:hover {
+    -fx-border-color: #ee59a6; /* Warna pink saat hover */
+}
+
+/* Mengubah warna border saat item dipilih */
+.list-cell:selected {
+    -fx-border-color: #FF5733; /* Warna merah saat dipilih */
+}
+
+/* Menimpa fokus pada item yang dipilih */
+.list-cell:focused {
+    -fx-border-color: transparent; /* Menghilangkan warna fokus biru */
+}
+/* Styling untuk ImageView */
+#photoImageView {
+    -fx-fit-width: 100px;    /* Ukuran lebar gambar */
+    -fx-fit-height: 100px;   /* Ukuran tinggi gambar */
+    -fx-clip: shape("roundrectangle 50%");  /* Membuat gambar bundar dengan clip */
+    -fx-background-radius: 50%;  /* Membuat sudut gambar bundar */
+    -fx-border-color: pink;  /* Warna border */
+    -fx-border-width: 2px;    /* Lebar border */
+}
+.root {
+    -fx-background-image: url("file:/C:/Users/Computer/Downloads/profil5.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+.icon-button {
+    -fx-background-color: #2ECC71;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-background-radius: 20px;
+    -fx-padding: 10px;
+    -fx-graphic: url('C:\Users\Computer\Downloads\profil6-removebg-preview.png'); /* Tambahkan ikon */
+    -fx-alignment: center-left; /* Teks dan ikon sejajar */
+    -fx-border-color: #27AE60;
+    -fx-border-width: 2px;
+}
+
+.icon-button:hover {
+    -fx-background-color: #27AE60;
+    -fx-border-color: #2ECC71;
+}
+
+

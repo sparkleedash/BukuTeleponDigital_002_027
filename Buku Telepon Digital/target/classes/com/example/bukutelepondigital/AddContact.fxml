@@ -2,15 +2,22 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="170.0" prefWidth="150.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.bukutelepondigital.AddContactController">
+<AnchorPane prefHeight="300.0" prefWidth="200.0" style="-fx-background-color: #FFC0CB;" styleClass="root" stylesheets="@Styles/Styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bukutelepondigital.AddContactController">
+    <ImageView fx:id="backgroundImageView" fitHeight="500.0" fitWidth="300.0" />
+   <Pane layoutX="20.0" layoutY="139.0" prefHeight="236.0" prefWidth="260.0" style="-fx-background-color: #f4f0f2;" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" />
+
     <!-- Form untuk menambah kontak -->
-    <TextField fx:id="nameField" layoutY="27.0" />
-    <TextField fx:id="phoneField" layoutY="72.0" />
+    <TextField fx:id="nameField" layoutX="20.0" layoutY="217.0" promptText="Name" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+    <TextField fx:id="phoneField" layoutX="20.0" layoutY="280.0" promptText="Number" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
 
     <!-- TextField untuk memasukkan path foto yang dapat menerima drag and drop -->
-    <TextField fx:id="photoPathField" layoutY="100.0" promptText="Drag and Drop Photo Here" />
+    <TextField fx:id="photoPathField" layoutX="20.0" layoutY="155.0" promptText="Drag and Drop Photo Here" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" AnchorPane.bottomAnchor="310.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
 
-    <Button fx:id="saveButton" layoutX="34.0" layoutY="122.0" text="Save" onAction="#saveContact" />
+    <Button fx:id="saveButton" layoutX="154.0" layoutY="273.0" onAction="#saveContact" stylesheets="@Styles/Styles.css" text="Save" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+    <Button layoutX="113.0" layoutY="135.0" mnemonicParsing="false" onAction="#goBack" stylesheets="@Styles/Styles.css" text="Back" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+
 </AnchorPane>

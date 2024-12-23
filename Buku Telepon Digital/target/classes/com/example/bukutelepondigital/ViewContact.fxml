@@ -5,22 +5,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="170.0" prefWidth="150.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="com.example.bukutelepondigital.ViewContactController">
+<AnchorPane prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: #fefafc;" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bukutelepondigital.ViewContactController">
     <!-- Label untuk menampilkan nama kontak -->
-    <Label fx:id="nameLabel" layoutX="14.0" layoutY="14.0" />
+    <Label fx:id="nameLabel" layoutX="20.0" layoutY="165.0" prefHeight="15.0" prefWidth="76.0" style="-fx-background-color: #FFC0CB;" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
 
     <!-- Label untuk menampilkan nomor telepon -->
-    <Label fx:id="phoneLabel" layoutX="14.0" layoutY="50.0" />
+    <Label fx:id="phoneLabel" layoutX="20.0" layoutY="234.0" prefHeight="15.0" prefWidth="140.0" style="-fx-background-color: #FFC0CB;" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
 
     <!-- Label untuk menampilkan path foto -->
-    <Label fx:id="photoPathLabel" layoutX="14.0" layoutY="90.0" />
+    <Label fx:id="photoPathLabel" layoutX="20.0" layoutY="223.0" prefHeight="15.0" prefWidth="130.0" style="-fx-background-color: #FFC0CB;" styleClass="rounded-text-field" stylesheets="@Styles/Styles.css" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
 
     <!-- ImageView untuk menampilkan gambar berdasarkan path foto -->
-    <ImageView fx:id="photoImageView" layoutX="14.0" layoutY="120.0" fitWidth="100" fitHeight="100"/>
+    <ImageView fx:id="photoImageView" fitHeight="85.0" fitWidth="85.0" layoutX="100.0" layoutY="82.0" />
 
     <!-- Tombol untuk membuka form edit kontak -->
-    <Button fx:id="editButton" layoutX="14.0" layoutY="230.0" text="Edit" onAction="#editContact" />
+    <Button fx:id="editButton" layoutX="15.0" layoutY="230.0" onAction="#editContact" text="Edit" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
 
     <!-- Tombol untuk kembali ke tampilan sebelumnya -->
-    <Button fx:id="backButton" layoutX="100.0" layoutY="230.0" text="Back" onAction="#goBack" />
+    <Button fx:id="backButton" layoutX="100.0" layoutY="230.0" onAction="#goBack" text="Back" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
 </AnchorPane>
